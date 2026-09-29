@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manju Chess</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">♞</span><span>MANJU <b>CHESS</b></span></a>
+      <button class="room-status" id="roomButton"><i></i><span id="roomStatus">ONLINE MATCH</span></button>
+      <button class="icon-button" id="soundButton" aria-label="Toggle sound">♬</button>
+    </header>
+
+    <section class="game-layout">
+      <aside class="player-card player-top" id="blackCard">
+        <div class="avatar black-avatar">♚</div>
+        <div><span class="player-name">BLACK</span><span class="player-meta">Guest player</span></div>
+        <div class="captured" id="blackCaptured"></div>
+        <div class="clock" id="blackClock">10:00</div>
+      </aside>
+
+      <section class="board-area">
+        <div class="board-frame">
+          <div class="rank-labels"><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+          <div class="chessboard" id="board" aria-label="Chess board"></div>
+          <div class="file-labels"><span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span></div>
+        </div>
+        <p class="hint">Select a piece to see its legal moves</p>
+      </section>
+
+      <aside class="match-panel">
+        <div class="turn-card" id="turnCard">
+          <span class="eyebrow">NOW PLAYING</span>
+          <strong id="turnText">White to move</strong>
+          <div class="turn-dots"><i></i><i></i><i></i></div>
+        </div>
+        <div class="panel-section">
+          <div class="section-title"><span>MOVE HISTORY</span><button id="flipButton" title="Flip board">↻</button></div>
+          <ol class="move-list" id="moveList"><li class="empty-history">The board is ready.</li></ol>
+        </div>
+        <div class="panel-section material-section">
+          <div class="section-title"><span>MATERIAL</span><span id="materialScore">=</span></div>
+          <div class="material-row"><span>White</span><div class="mini-pieces" id="whiteMaterial"></div></div>
+          <div class="material-row"><span>Black</span><div class="mini-pieces" id="blackMaterial"></div></div>
+        </div>
+        <div class="controls">
+          <button class="secondary-button" id="undoButton">↶ Undo</button>
+          <button class="primary-button" id="newGameButton">New game</button>
+        </div>
+      </aside>
+
+      <aside class="player-card player-bottom" id="whiteCard">
+        <div class="avatar white-avatar">♔</div>
+        <div><span class="player-name">WHITE <em>YOU</em></span><span class="player-meta">Local player</span></div>
+        <div class="captured" id="whiteCaptured"></div>
+        <div class="clock" id="whiteClock">10:00</div>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="promotionDialog">
+    <form method="dialog">
+      <span class="eyebrow">PAWN PROMOTION</span>
+      <h2>Choose a piece</h2>
+      <div class="promotion-options" id="promotionOptions"></div>
+    </form>
+  </dialog>
+  <dialog id="roomDialog" class="room-dialog">
+    <form method="dialog">
+      <span class="eyebrow">REAL-TIME MULTIPLAYER</span>
+      <h2>Play with a friend</h2>
+      <p id="roomMessage">Create a private room or join with a code.</p>
+      <div class="room-actions">
+        <button class="primary-button" type="button" id="createRoomButton">Create room</button>
+        <label class="join-row"><input id="roomCode" maxlength="5" placeholder="ROOM CODE" autocomplete="off" /><button class="secondary-button" type="button" id="joinRoomButton">Join</button></label>
+      </div>
+      <div class="room-code-display" id="roomCodeDisplay" hidden><span>SHARE THIS CODE</span><strong></strong><small>Waiting for Black to join…</small></div>
+      <button class="dialog-close" value="cancel">Continue locally</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
