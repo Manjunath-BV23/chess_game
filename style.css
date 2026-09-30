@@ -17,3 +17,24 @@
 .chessboard{grid-template-rows:repeat(8,minmax(0,1fr))}
 
 .room-status{font:11px "DM Mono";letter-spacing:1.3px;color:#b9b9ad;background:transparent;border:0;cursor:pointer}.room-status i{display:inline-block;background:#7ecf92;width:7px;height:7px;border-radius:50%;margin-right:9px}.room-status:hover{color:var(--gold)}.room-dialog{width:min(420px,calc(100% - 32px));padding:27px;text-align:left}.room-dialog h2{margin-bottom:7px}.room-dialog p{font-size:13px;color:#adb4ac;line-height:1.5;margin:0 0 20px}.room-actions{display:grid;gap:10px}.room-actions .primary-button{width:100%}.join-row{display:grid;grid-template-columns:1fr 80px;gap:8px}.join-row input{min-width:0;border:1px solid #4c574f;border-radius:8px;background:#18201c;color:var(--ink);font:12px "DM Mono";letter-spacing:1px;padding:0 12px;text-transform:uppercase;outline:0}.join-row input:focus{border-color:var(--gold)}.room-code-display{margin:20px 0 7px;padding:17px;text-align:center;border:1px dashed #566158;border-radius:9px;background:#1a211e}.room-code-display span,.room-code-display small{display:block;font:10px "DM Mono";letter-spacing:1px;color:#9ca59c}.room-code-display strong{display:block;color:var(--gold);font:700 30px "DM Mono";letter-spacing:6px;margin:8px 0}.dialog-close{display:block;border:0;background:transparent;color:#aeb5ad;margin:17px auto 0;cursor:pointer;font:12px "Space Grotesk"}.dialog-close:hover{color:var(--ink)}
+
+@media (max-width: 600px){
+  .app-shell{padding:0 14px}
+  .topbar{height:64px}
+  .brand{font-size:13px;gap:7px}.brand-mark{font-size:27px}
+  .room-status{font-size:9px;letter-spacing:.7px}.room-status i{margin-right:5px}
+  .game-layout{margin:20px auto 28px;gap:15px;grid-template-columns:minmax(0,1fr)}
+  .player-card{gap:9px}.avatar{height:39px;width:39px;font-size:25px;border-radius:10px}
+  .player-name{font-size:12px}.player-meta{font-size:10px}.captured{margin-left:auto;font-size:15px}.clock{margin-left:7px;font-size:18px}
+  .board-frame{width:100%;padding:0 0 21px 19px}
+  .chessboard{width:100%;max-width:calc(100% - 19px);border-width:5px}
+  .square{font-size:clamp(28px,11vw,48px)}
+  .rank-labels{top:5px;height:calc(100% - 27px);font-size:10px}
+  .file-labels{width:100%;max-width:calc(100% - 19px);height:19px;font-size:10px}
+  .hint{margin:5px 0 0 20px;font-size:10px}
+  .match-panel{width:100%;padding:16px;border-radius:13px}
+  .turn-card{min-height:0;padding:13px 14px;margin-bottom:15px}.turn-card strong{font-size:18px;margin:5px 0 10px}
+  .panel-section{padding:13px 0}.move-list{max-height:130px}
+  .primary-button,.secondary-button{height:42px;font-size:13px}
+  .room-dialog{padding:22px}.room-code-display strong{font-size:26px}
+}
